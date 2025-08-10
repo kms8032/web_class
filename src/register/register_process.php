@@ -48,14 +48,14 @@ $result_1 = $conn->query($sql_1);
 $check_id = mysqli_fetch_assoc($result_1);
 
 
-if($check_id['username'] === $id){
+if($check_id['id'] === $id){
     $SESSION['error'] = "중복된 아이디가 있습니다. 다른 아이디로 해주세요.";
     header("Location: register.php");
     exit;
 }
 
 # 쿼리 작업
-$sql_2 = "INSERT INTO users (username, name, password) VALUES ('$name', '$id', '$hashed_password')";
+$sql_2 = "INSERT INTO users (name, id, password) VALUES ('$name', '$id', '$hashed_password')";
 $result_2 = $conn->query($sql_2);
 
 

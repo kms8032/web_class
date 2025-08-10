@@ -10,8 +10,7 @@ session_start();
     <title>Document</title>
   </head>
   <body>
-    <h2>환영합니다</h2>
-    <?php echo $_SESSION['name']; ?>
+    <h2>환영합니다 <?php echo $_SESSION['name']; ?> 님</h2>
     <form action="./login/logout.php">
       <input type="submit" value="로그아웃">
   </form>

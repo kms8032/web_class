@@ -39,11 +39,12 @@ $result_1 = $conn->query($sql_1);
 $check_id = mysqli_fetch_assoc($result_1);
 
 
-if($check_id['username'] === $id){
+if($check_id['id'] === $id){
     # 해시된 pw와 입력한 pw가 일치하는 확인
     $take_pass = password_verify($password, $check_id['password']);
     if ($take_pass === TRUE){
-        $_SESSION['name'] = $id;
+        $_SESSION['id'] = $id;
+        $_SESSION['name'] = $check_id['name'];
         header("Location: ../welcome.php");
         exit;
     } else {
@@ -58,5 +59,3 @@ if($check_id['username'] === $id){
     header("Location: login.php");
     exit;
 }
-    
-
