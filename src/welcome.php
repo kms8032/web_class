@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+$now_page = 1;
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +15,7 @@ session_start();
     <h2>환영합니다 <?php echo $_SESSION['name']; ?> 님</h2>
     <form action="./login/logout.php">
       <input type="submit" value="로그아웃">
-  </form>
+    </form>
+    <a href='../board/list.php?page=<?= $now_page?>'><input type='submit' value='공지사항'></a>
   </body>
 </html>
