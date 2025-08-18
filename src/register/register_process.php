@@ -33,6 +33,7 @@ $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 # 데이터베이스 연결
 try {
     $conn = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+    # 데이터베이스 서버와 데이터를 보낼 때 사용할 기본 문자 집합을 지정
     $conn->set_charset("utf8mb4");
 
 } catch (mysqli_sql_exception $e) {
@@ -45,7 +46,8 @@ try {
 # 데이터베이스에 이미 존재하는 아이디인지 확인
 $sql_1 = "SELECT * FROM users";
 $result_1 = $conn->query($sql_1);
-$check_id = mysqli_fetch_assoc($result_1);
+# 결과 행과 연관 배열로 가져옴
+$check_id = $result_1->fetch_assoc();
 
 
 if($check_id['id'] === $id){
