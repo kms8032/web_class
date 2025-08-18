@@ -28,7 +28,8 @@ services:
       TZ: ${TIME_ZONE}
     volumes:
       - db_data:/var/lib/mysql
-      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./src/sql/posts.sql:/docker-entrypoint-initdb.d/posts.sql
+      - ./src/sql/users.sql:/docker-entrypoint-initdb.d/users.sql
 
 volumes:
   db_data:
