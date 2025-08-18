@@ -34,15 +34,15 @@ try {
     exit;
 }
 # db에 해당 아이디가 존재 하는지 확인
-$sql_1 = "SELECT * FROM users";
+$sql_1 = "SELECT * FROM users WHERE id='$id'";
 $result_1 = $conn->query($sql_1);
-$check_id = mysqli_fetch_assoc($result_1);
+$check_id = $result_1->fetch_assoc();
 
 
 if($check_id['id'] === $id){
     # 해시된 pw와 입력한 pw가 일치하는 확인
     $take_pass = password_verify($password, $check_id['password']);
-    if ($take_pass === TRUE){
+    if ($take_pass){
         $_SESSION['id'] = $id;
         $_SESSION['name'] = $check_id['name'];
         header("Location: ../welcome.php");
