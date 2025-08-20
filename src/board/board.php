@@ -88,8 +88,9 @@ if ($posts_check_result === false) {
         </tr>
         <?php
             for ($x=1 ; $x<$posts_check_result->num_rows+1; $x++){
+                $post_id = $result_array[$x-1]['post_id'];
                 echo "<tr>";
-                echo "<td>".$x."</td>";
+                echo "<td>"."<a href='detail.php?post_id=$post_id'>".$x."</a>"."</td>";
                 echo "<td>".$result_array[$x-1]['title']."</td>";
                 echo "<td>".$result_array[$x-1]['create_at']."</td>";
                 echo "<td>".$result_array[$x-1]['update_at']."</td>";
