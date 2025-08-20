@@ -70,6 +70,15 @@ if ($posts_check_result === false) {
 </head>
 <body>
     <h1>공지사항</h1>
+    <?php
+        if (isset($_SESSION['error'])){
+            echo"<p style = 'color:red;'>에러 :".$_SESSION['error']."</p>";
+            unset($_SESSION['error']);
+        } elseif (isset($_SESSION['success'])){
+            echo"<p style = 'color:blue;'>성공 :".$_SESSION['success']."</p>";
+            unset($_SESSION['success']);
+        }
+    ?>
     <table style="width:100%">
         <tr>
             <td>번호</td>
