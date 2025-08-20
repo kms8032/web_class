@@ -18,5 +18,7 @@ CREATE TABLE IF NOT EXISTS posts (
     writer VARCHAR(50) NOT NULL, -- 작성자
     post_pw VARCHAR(100) NOT NULL, -- 게시글 비밀번호 (수정, 삭제)
     title VARCHAR(255) NOT NULL, -- 게시글 제목
-    content TEXT NOT NULL -- 게시글 내용
+    content TEXT NOT NULL, -- 게시글 내용
+    create_at DATETIME DEFAULT CURRENT_TIMESTAMP, -- 작성일
+    update_at DATETIME DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP -- 수정일
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
