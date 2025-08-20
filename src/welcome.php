@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+$page = 1;
 ?>
 
 <!DOCTYPE html>
@@ -11,9 +13,13 @@ session_start();
 </head>
 <body>
     <h1>환영합니다. <?= $_SESSION['name'] ?></h1>
-    <form>
-        <button type='submit' formaction="../board/board.php">공지사항</button>
-    </form>
+    <?php 
+        if (isset($_SESSION['notice'])){
+            echo "<p style= 'color:green;'>알림 :".$_SESSION['notice']."</p>";
+            unset($_SESSION['notice']);
+        }
+    ?>
+    <a href='../board/board.php?page=<?= $page?>'><input type='submit' value='공지사항'></a>
     <form>
         <button type='submit' formaction="../Login/logout.php">로그아웃</button>
     </form>
