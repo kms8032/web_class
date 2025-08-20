@@ -94,6 +94,9 @@ if ($posts_check_result === false) {
             echo "<br>";
         }
     ?>
+    <form>
+        <button type="submit" formaction="write.php">작성하기</button>
+    </form>
 </body>
 </html>
 
