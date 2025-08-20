@@ -41,7 +41,7 @@ try {
 } catch (mysqli_sql_exception $e) {
     # 연결 실패 시 세션에 에러메시지( 데이터베이스 연결 실패 ) 저장
     $_SESSION['error'] = "데이터베이스 연결 실패";
-    # 회원가입 페이질로 리디렉션
+    # 회원가입 페이지로 리디렉션
     header("Location: register.php");
     exit;
 }
@@ -50,8 +50,8 @@ try {
 
 # 아이디 존재 여부 쿼리
 # SELETE 쿼리
-$check_id_spl = "SELECT id FROM users WHERE id='$id'";
-$id_result = $db_connect->query($check_id_spl);
+$check_id_sql = "SELECT id FROM users WHERE id='$id'";
+$id_result = $db_connect->query($check_id_sql);
 
 # 아이디 존재 O
 if ($id_result->num_rows > 0){
@@ -80,7 +80,7 @@ if ($id_result->num_rows > 0){
         $_SESSION['success'] = "회원가입이 완료되었습니다. 로그인을 시도해주세요.";
         # 데이터베이스 연결 종료
         $db_connect->close();
-        # 회원가입 페이지로 리디렉션
+        # 로그인 페이지로 리디렉션
         header("Location: ../Login/login.php");
         exit;
     }   
