@@ -59,6 +59,8 @@ $db_connect->close();
 
     <form>
         <button><a href="edit.php?post_id=<?= $post_id?>">수정하기</a></button>
+        <button><a href="delete.php?post_id=<?= $post_id?>">삭제하기</a></button>
+        <button><a href="board.php">돌아가기</a></button>
     </form>
 </body>
 </html>

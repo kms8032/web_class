@@ -37,5 +37,8 @@ session_start();
         Content: <textarea id="content" name="content" rows="4" cols="50" required></textarea>><br><br>
         <input type="submit" value="작성완료">
     </form>
+    <form>
+        <button type="submit" formaction="board.php">돌아가기</button>
+    </form>
 </body>
 </html>
