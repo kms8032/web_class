@@ -88,9 +88,10 @@ if ($posts_check_result === false) {
         </tr>
         <?php
             for ($x=1 ; $x<$posts_check_result->num_rows+1; $x++){
-                $post_id = $result_array[$x-1]['post_id'];
+                $post_id = (int)$result_array[$x-1]['post_id'];
+                $num = $offset + $x;
                 echo "<tr>";
-                echo "<td>"."<a href='detail.php?post_id=$post_id'>".$x."</a>"."</td>";
+                echo "<td>"."<a href='detail.php?post_id=$post_id'>".$num."</a>"."</td>";
                 echo "<td>".$result_array[$x-1]['title']."</td>";
                 echo "<td>".$result_array[$x-1]['create_at']."</td>";
                 echo "<td>".$result_array[$x-1]['update_at']."</td>";
@@ -105,7 +106,8 @@ if ($posts_check_result === false) {
         }
     ?>
     <form>
-        <button type="submit" formaction="write.php">작성하기</button>
+        <button type="submit" formaction="write.php">작성하기</button><br><br>
+        <button type="submit" formaction="../welcome.php">돌아가기</button>
     </form>
 </body>
 </html>
